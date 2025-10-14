@@ -19,6 +19,9 @@ from google.genai import types
 from validation_agent.agent import root_agent as validation_agent
 from question_agents.agent import root_agent as question_agent
 
+from uuid import uuid4
+USER_ID = str(uuid4())
+
 
 class ADKRunners:
     def __init__(self):
@@ -29,7 +32,7 @@ class ADKRunners:
         app_name="ValidationAgent"
         self.validation_agent_session=await session_service.create_session(
             app_name=app_name, 
-            user_id="test_user"
+            user_id=USER_ID
         )
         self.validation_agent_runner=Runner(
             agent=validation_agent,
@@ -42,7 +45,7 @@ class ADKRunners:
     async def validate_input(self,user_input="elephant"):
         try:
             async for event in self.validation_agent_runner.run_async(
-                user_id="test_user",
+                user_id=USER_ID,
                 session_id=self.validation_agent_session.id,
                 new_message=types.Content(role='user', parts=[types.Part(text=user_input)])
             ):
@@ -60,7 +63,7 @@ class ADKRunners:
         app_name="QuestionAgent"
         self.question_agent_session=await session_service.create_session(
             app_name=app_name, 
-            user_id="test_user"
+            user_id=USER_ID
         )
         self.question_agent_runner=Runner(
             agent=question_agent,
@@ -74,7 +77,7 @@ class ADKRunners:
     async def guess_or_ask(self, game_context="Starting a new game of 20 questions"):
         try:
             async for event in self.question_agent_runner.run_async(
-                user_id="test_user",
+                user_id=USER_ID,
                 session_id=self.question_agent_session.id,
                 new_message=self.query_to_content(game_context)
             ):
