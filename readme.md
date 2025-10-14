@@ -34,6 +34,45 @@ To exit the virtual environment when you are done working on the project, run:
 deactivate
 ```
 
+## Get and set up Gemini API Key
+
+This project uses Google's Gemini AI model, which requires an API key for authentication.
+
+### Step 1: Get your API Key from Google AI Studio
+
+1. Go to [Google AI Studio](https://aistudio.google.com/)
+2. Sign in with your Google account
+3. Click on "Get API Key" or "Create API Key"
+4. Create a new API key for your project
+5. Copy the generated API key (it will look like: `AIzaSyA...`)
+
+### Step 2: Create a .env file
+
+In the root directory of the project (same folder as `main.py`), create a file named `.env`:
+
+```bash
+touch .env
+```
+
+### Step 3: Add your API key to the .env file
+
+Open the `.env` file in a text editor and add your API key:
+
+```env
+GOOGLE_API_KEY=your_actual_api_key_here
+```
+
+Replace `your_actual_api_key_here` with the API key you copied from Google AI Studio.
+
+### Step 4: Verify the setup
+
+Make sure your `.env` file:
+- Is in the root directory of the project
+- Contains the correct API key
+- Is **NOT** committed to version control (it should be in `.gitignore`)
+
+**Important:** Never share your API key publicly or commit it to version control. The `.env` file should be kept private and secure.
+
 ## Run the Game
 
 With your environment activated and dependencies installed, you can start the game by executing the main file:
@@ -85,6 +124,7 @@ python main.py
 ```
 
 This is essential for troubleshooting issues like prompt failures, unexpected tool usage, or incorrect context retrieval.
+
 
 ## `tkinter`
 
