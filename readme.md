@@ -2,6 +2,11 @@
 
 This is a simple game built using Python and the Google ADK framework.
 
+You will play the "20 questions" game with an AI - you think of a word, and the AI tries to read your mind by asking you up to 20 yes/no question.
+
+The architecture of the application:
+<img width="960" height="540" alt="Beyond the prompt" src="https://github.com/user-attachments/assets/8daabbbb-4af7-4c79-af76-9e13bcc7613e" />
+
 ## Setup and Installation
 
 After cloning the project, it is highly recommended to set up a virtual environment to manage project dependencies and avoid conflicts with other Python packages.
