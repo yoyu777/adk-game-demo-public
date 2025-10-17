@@ -1,6 +1,6 @@
 # A Simple Python Game using ADK
 
-This is a simple game built using Python and the Google ADK framework.
+This is a simple game built using Python and the Google ADK framework, part of the Beyond the Prompt presentation/workshop. You can find the public slide deck here: https://github.com/yoyu777/adk-game-demo-public
 
 You will play the "20 questions" game with an AI - you think of a word, and the AI tries to read your mind by asking you up to 20 yes/no question.
 
